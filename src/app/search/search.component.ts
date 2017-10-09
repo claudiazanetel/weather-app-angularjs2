@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {HttpClient, HttpParams} from '@angular/common/http';
 
@@ -8,20 +8,24 @@ import {HttpClient, HttpParams} from '@angular/common/http';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+  @Input() cityName : string;
   city = new FormControl();
+  @Output("search") currentWeatherEmitter = new EventEmitter();
 
   constructor(private http: HttpClient) {}
 
   searchCity(){
     console.log(this.city.value)
-    this.http.get('http://api.openweathermap.org/data/2.5/weather', {
+    this.currentWeatherEmitter.emit(this.city.value);
+/*     this.http.get('http://api.openweathermap.org/data/2.5/weather', {
       params: new HttpParams()
         .set('q', this.city.value)
         .set('units', 'metric')
         .set('appid', '4b80da9843e489246022d72d79a1e508')
     }).subscribe(data => {
-      console.log(data)
-    });
+      console.log(data);
+      this.currentWeatherEmitter.emit(data);
+    }); */
   }
 
   ngOnInit(){
