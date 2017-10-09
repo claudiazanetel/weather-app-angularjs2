@@ -12,3 +12,9 @@
         </div>
     </div>
 </div>
+
+<div *ngIf="city.invalid" class="alert alert-danger" [hidden]="!noCity">
+    <div *ngIf="city.errors.required">
+    City is required.
+    </div>
+</div>

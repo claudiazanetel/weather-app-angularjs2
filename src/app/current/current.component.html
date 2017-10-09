@@ -1,13 +1,16 @@
-<div class="row currentWeatherData">
-  <div class="col-12-xs currentData">
-      <div class="city">
-          <h2> {{currentData?.name}} &nbsp;</h2>
-      </div>
-      <div>
-          <i class="wi wi-owm-{{currentData?.weather[0].id}}" style="font-size: 60px;"></i><br><br>
-          <h4>{{currentData?.weather[0].description}}</h4>
-          <h3>{{currentData?.main.temp | number: '1.0-0'}}°C</h3>
-      </div>
-  </div>
+<div [hidden]="!isEmpty">
+    <div class="row currentWeatherData">
+        <div class="col-12-xs currentData">
+            <div class="city">
+                <h2> {{currentData?.name}} &nbsp;</h2>
+            </div>
+            <div>
+                <i class="wi wi-owm-{{currentData?.weather[0].id}}" style="font-size: 60px;"></i><br>
+                <h4>{{currentData?.weather[0].description}}</h4>
+                <h3>{{currentData?.main.temp | number: '1.0-0'}}°C</h3>
+            </div>
+        </div>
+    </div>
 </div>
+
 

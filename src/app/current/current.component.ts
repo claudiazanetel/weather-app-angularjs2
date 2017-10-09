@@ -9,8 +9,10 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 export class CurrentComponent implements OnChanges {
   @Input() cityName : string;
   currentData: Object;
+  isEmpty: boolean;
   constructor(private http: HttpClient) { 
     this.currentData;
+    this.isEmpty = false;
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
@@ -24,6 +26,7 @@ export class CurrentComponent implements OnChanges {
           .set('appid', '4b80da9843e489246022d72d79a1e508')
       }).subscribe(data => {
         // console.log(data);
+        this.isEmpty = true;
         this.currentData = data;
       });
     }

@@ -9,8 +9,10 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 export class ForecastComponent implements OnChanges{
   @Input() cityName : string;
   forecastDailyData: Object;
+  isEmpty: boolean;
   constructor(private http: HttpClient) { 
     this.forecastDailyData;
+    this.isEmpty = false;
   }
 
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
@@ -24,6 +26,7 @@ export class ForecastComponent implements OnChanges{
       }).subscribe(data => {
         console.log(data['list']);
         this.forecastDailyData = data;
+        this.isEmpty = true;
         console.log('forecast: ' + this.forecastDailyData)
       });
     }

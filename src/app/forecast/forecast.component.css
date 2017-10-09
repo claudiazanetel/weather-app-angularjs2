@@ -1,0 +1,17 @@
+.nextDaysWeather{
+	display:inline-block;
+	width: 20%;
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 2px #EEEEEE solid;
+	border-top: 2px #EEEEEE solid;
+	padding-top: 10px;
+	opacity: 0.6;
+}
+
+.selectedDay{
+	border-top: 2px #A9A9A9 solid;
+	border-bottom: 2px #FCFCFC solid;
+	opacity: 1;
+	background-color: #FCFCFC;
+}
