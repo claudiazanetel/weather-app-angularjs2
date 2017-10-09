@@ -6,12 +6,14 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { CurrentComponent } from './current/current.component';
+import { ForecastComponent } from './forecast/forecast.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    CurrentComponent
+    CurrentComponent,
+    ForecastComponent
   ],
   imports: [
     BrowserModule,

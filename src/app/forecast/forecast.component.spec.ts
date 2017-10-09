@@ -1,15 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule} from '@angular/common/http';
 
-import { CurrentComponent } from './current.component';
+import { ForecastComponent } from './forecast.component';
 
-describe('CurrentComponent', () => {
-  let component: CurrentComponent;
-  let fixture: ComponentFixture<CurrentComponent>;
+describe('ForecastComponent', () => {
+  let component: ForecastComponent;
+  let fixture: ComponentFixture<ForecastComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CurrentComponent ],
+      declarations: [ ForecastComponent ],
       imports: [
         HttpClientModule
       ]
@@ -18,7 +18,7 @@ describe('CurrentComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CurrentComponent);
+    fixture = TestBed.createComponent(ForecastComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

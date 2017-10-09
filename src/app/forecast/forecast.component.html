@@ -1,0 +1,7 @@
+<div class="col-12-xs nextDaysWeather" ng-repeat="item in dailyData.list.slice(0, 5)" *ngFor='let item of forecastDailyData?.list | slice:0:5;'>
+  <span>{{item.dt * 1000 | date:'EEE':'GMT' }}</span><br><br> 
+<!--   <i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 40px;"></i><br><br>  -->
+  <span style="color: #CC0000;">{{item.temp.max | number:0}} °C</span><br> 
+  <span style="color: #003366;">{{item.temp.min | number:0}} °C</span>
+</div>
+

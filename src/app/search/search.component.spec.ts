@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
 
 import { SearchComponent } from './search.component';
 
@@ -13,8 +12,7 @@ describe('SearchComponent', () => {
       declarations: [ SearchComponent ],
       imports: [
         ReactiveFormsModule,
-        FormsModule,
-        HttpClientModule
+        FormsModule
       ]
     })
     .compileComponents();

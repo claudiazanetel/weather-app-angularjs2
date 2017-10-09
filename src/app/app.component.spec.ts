@@ -4,13 +4,16 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { CurrentComponent } from './current/current.component';
+import { ForecastComponent } from './forecast/forecast.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
         SearchComponent,
-        CurrentComponent
+        CurrentComponent,
+        ForecastComponent
       ],
       imports: [
         ReactiveFormsModule,
