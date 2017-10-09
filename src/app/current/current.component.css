@@ -1,0 +1,11 @@
+.city{
+	text-align: center;
+	font-size: 30px;
+}
+
+.currentData{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 3%;
+    text-align: center;
+}

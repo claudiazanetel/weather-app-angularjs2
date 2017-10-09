@@ -1,3 +1,14 @@
-<input class="form-control" [formControl]="city">
+<!-- <input class="form-control" [formControl]="city">
 {{ city.value }}
-<button type="button" (click)=searchCity()>Search</button>
+<button type="button" (click)=searchCity()>Search</button> -->
+
+<div class="row chooseCity">
+    <div class="col-12-xs search">
+        <div class="input-group add-on">
+            <input class="form-control" placeholder="Choose a city" [formControl]="city">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="button" (click)=searchCity()>Search</button>
+            </div>
+        </div>
+    </div>
+</div>
