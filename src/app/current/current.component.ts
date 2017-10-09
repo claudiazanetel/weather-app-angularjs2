@@ -10,8 +10,10 @@ export class CurrentComponent implements OnChanges {
   @Input() cityName : string;
   currentData: Object;
   isEmpty: boolean;
+  isError:boolean;
   constructor(private http: HttpClient) { 
     this.currentData;
+    this.isEmpty = false;
     this.isEmpty = false;
   }
 
@@ -24,12 +26,17 @@ export class CurrentComponent implements OnChanges {
           .set('q', changes.cityName.currentValue)
           .set('units', 'metric')
           .set('appid', '4b80da9843e489246022d72d79a1e508')
-      }).subscribe(data => {
-        // console.log(data);
-        this.isEmpty = true;
-        this.currentData = data;
-      });
+      }).subscribe(
+        data => {
+          // console.log(data);
+          this.isEmpty = true;
+          this.isError = false;
+          this.currentData = data;
+        },
+        err => {
+          this.isError = true;
+        }
+    );
     }
   }
-
 }

@@ -16,3 +16,14 @@ span{
 	margin-right: 0;
 	margin-left: 0;
 }
+
+.loading, .error{
+	position:absolute; 
+	width:100%; 
+	height:500px;
+	text-align: center;
+}
+
+.alert{
+	margin:10%;
+}
