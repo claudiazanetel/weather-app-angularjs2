@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import {  ReactiveFormsModule, FormControl } from '@angular/forms';
+import { HttpClient, HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'search',
@@ -8,8 +8,8 @@ import {HttpClient, HttpParams} from '@angular/common/http';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  @Input() cityName : string;
   city = new FormControl();
+  @Input() cityName : string;
   @Output("search") currentWeatherEmitter = new EventEmitter();
 
   constructor(private http: HttpClient) {}
