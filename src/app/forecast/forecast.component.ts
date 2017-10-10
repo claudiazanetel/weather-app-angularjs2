@@ -23,13 +23,28 @@ export class ForecastComponent implements OnChanges{
           .set('q', changes.cityName.currentValue)
           .set('units', 'metric')
           .set('appid', '4b80da9843e489246022d72d79a1e508')
-      }).subscribe(data => {
+      }).subscribe(
+        data => {
         console.log(data['list']);
         this.forecastDailyData = data;
         this.isEmpty = true;
-        console.log('forecast: ' + this.forecastDailyData)
-      });
+        console.log('forecast: ' + this.forecastDailyData)},
+        err => {
+          this.isEmpty = false;
+        });
+      }
     }
   }
 
-}
+// ng-repeat call getDaysDetails
+/* $scope.getDaysDetails = function () {
+  var dateFrom = new Date($scope.selectedDay * 1000);
+  var dateTo = new Date($scope.selectedDay * 1000);
+  dateFrom.setHours(0, 0, 0, 0);
+  dateTo.setHours(23, 59, 59, 999);
+  var from = dateFrom.getTime() / 1000;
+  var to = dateTo.getTime() / 1000;
+  return $scope.detailedWeatherData.filter(function (element) {
+    return element.dt >= from && element.dt < to;
+  });
+}; */

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { Component, Output, Input, EventEmitter } from '@angular/core';
 import {  ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -6,7 +6,7 @@ import {  ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   city = new FormControl('', [Validators.required]);
   @Input() cityName : string;
   @Output("search") currentWeatherEmitter = new EventEmitter();
@@ -21,10 +21,8 @@ export class SearchComponent implements OnInit {
     this.currentWeatherEmitter.emit(this.city.value);
     if (this.city.invalid) {
       this.noCity = true;
+    } else {
+      this.noCity = false;
     }
   }
-
-  ngOnInit(){
-  }
-
 }

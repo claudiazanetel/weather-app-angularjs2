@@ -14,9 +14,8 @@ export class CurrentComponent implements OnChanges {
   constructor(private http: HttpClient) { 
     this.currentData;
     this.isEmpty = false;
-    this.isEmpty = false;
+    this.isError = false;
   }
-
   ngOnChanges(changes: {[propKey: string]: SimpleChange}) {
     // console.log('changed current');
     // console.log(changes.cityName.currentValue);
@@ -35,8 +34,8 @@ export class CurrentComponent implements OnChanges {
         },
         err => {
           this.isError = true;
-        }
-    );
+          this.isEmpty = false;
+        });
+      }
     }
   }
-}
