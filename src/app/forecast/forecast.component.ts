@@ -35,6 +35,7 @@ export class ForecastComponent implements OnChanges{
         console.log(data['list']);
         this.forecastDailyData = data;
         this.isEmpty = true;
+        this.getDayDetails(this.forecastDailyData['list'][0]['dt'])
         },
         err => {
           this.isEmpty = false;

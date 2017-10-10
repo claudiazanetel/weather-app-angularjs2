@@ -1,6 +1,6 @@
 <div [hidden]="!isEmpty">
   <div class="row">
-    <div class="col-12-xs nextDaysWeather" *ngFor="let item of forecastDailyData?.list | slice:0:5;" (click)="getDayDetails(item.dt)">
+    <div class="col-12-xs nextDaysWeather" *ngFor="let item of forecastDailyData?.list | slice:0:5;" [ngClass]= "{selectedDay : selectedDay === item.dt}" (click)="getDayDetails(item.dt)">
       <span>{{item.dt * 1000 | date:'EEE':'GMT' }}</span><br><br> 
       <i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 40px;"></i><br><br> 
       <span style="color: #CC0000;">{{item.temp.max | number: '1.0-0'}} °C</span><br> 
