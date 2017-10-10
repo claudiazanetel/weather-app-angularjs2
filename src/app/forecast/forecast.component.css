@@ -16,3 +16,34 @@
 	opacity: 1;
 	background-color: #FCFCFC;
 }
+
+.nextHoursWeather{
+	background-color: #FCFCFC;
+	width: 100%;
+}
+
+.nextHoursWeather ul{
+	padding:0;
+}
+
+.detailHeader{
+	list-style-type: none;
+	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	padding:15px;
+	padding-bottom: 10px;
+}
+
+.details{
+	list-style-type: none;
+	padding-top: 5px;
+	border-bottom: 2px #EEEEEE solid;
+}
+
+.nextHoursWeather p{
+	display:inline-block;
+	width:24%;
+	text-align: center;
+	margin-right: 0;
+}

@@ -1,11 +1,26 @@
 <div [hidden]="!isEmpty">
   <div class="row">
-    <div class="col-12-xs nextDaysWeather" *ngFor='let item of forecastDailyData?.list | slice:0:5;'>
+    <div class="col-12-xs nextDaysWeather" *ngFor="let item of forecastDailyData?.list | slice:0:5;" (click)="getDayDetails(item.dt)">
       <span>{{item.dt * 1000 | date:'EEE':'GMT' }}</span><br><br> 
       <i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 40px;"></i><br><br> 
       <span style="color: #CC0000;">{{item.temp.max | number: '1.0-0'}} °C</span><br> 
       <span style="color: #003366;">{{item.temp.min | number: '1.0-0'}} °C</span>
     </div>
+  </div>
+  <div class="row">
+      <div class="col-12-xs nextHoursWeather">
+      <ul>
+          <li class="detailHeader">
+              {{selectedDay * 1000 | date:'EEEE dd MMMM yyyy':'GMT'}}
+          </li>
+          <li class="details" *ngFor="let item of forecastDetailsHourly" >
+             <p>{{item.dt*1000 | date:'HH:mm':'GMT'}}</p>
+             <p><i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 30px;"></i></p>
+             <p>{{item.weather[0].description}}</p>
+             <p>{{item.main.temp | number: '1.0-0'}} °C</p>
+          </li>
+      </ul>
+      </div>
   </div>
 </div>
 
