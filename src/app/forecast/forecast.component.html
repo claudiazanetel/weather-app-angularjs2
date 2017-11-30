@@ -1,10 +1,13 @@
-<div [hidden]="!isEmpty">
+<div *ngIf="!isEmpty">
   <div class="row">
-    <div class="col-12-xs nextDaysWeather" *ngFor="let item of forecastDailyData?.list | slice:0:5;" [ngClass]= "{selectedDay : selectedDay === item.dt}" (click)="getDayDetails(item.dt)">
-      <span>{{item.dt * 1000 | date:'EEE':'GMT' }}</span><br><br> 
-      <i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 40px;"></i><br><br> 
-      <span style="color: #CC0000;">{{item.temp.max | number: '1.0-0'}} °C</span><br> 
-      <span style="color: #003366;">{{item.temp.min | number: '1.0-0'}} °C</span>
+    <div class="col-12-xs nextDaysWeather"
+    *ngFor="let day of forecastDailyData?.list | slice:0:5;"
+    [ngClass]= "{selectedDay : selectedDay === day.dt}"
+    (click)="setSelectedDay(day.dt)">
+      <span>{{day.dt * 1000 | date:'EEE':'GMT' }}</span><br><br> 
+      <i class="wi wi-owm-{{day.weather[0].id}}" style="font-size: 40px;"></i><br><br> 
+      <span style="color: #CC0000;">{{day.temp.max | number: '1.0-0'}} °C</span><br> 
+      <span style="color: #003366;">{{day.temp.min | number: '1.0-0'}} °C</span>
     </div>
   </div>
   <div class="row">
@@ -13,11 +16,11 @@
           <li class="detailHeader">
               {{selectedDay * 1000 | date:'EEEE dd MMMM yyyy':'GMT'}}
           </li>
-          <li class="details" *ngFor="let item of forecastDetailsHourly" >
-             <p>{{item.dt*1000 | date:'HH:mm':'GMT'}}</p>
-             <p><i class="wi wi-owm-{{item.weather[0].id}}" style="font-size: 30px;"></i></p>
-             <p>{{item.weather[0].description}}</p>
-             <p>{{item.main.temp | number: '1.0-0'}} °C</p>
+          <li class="details" *ngFor="let hour of getDayDetails()" >
+             <p>{{hour.dt*1000 | date:'HH:mm':'GMT'}}</p>
+             <p><i class="wi wi-owm-{{hour.weather[0].id}}" style="font-size: 30px;"></i></p>
+             <p>{{hour.weather[0].description}}</p>
+             <p>{{hour.main.temp | number: '1.0-0'}} °C</p>
           </li>
       </ul>
       </div>
